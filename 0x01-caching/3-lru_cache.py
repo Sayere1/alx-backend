@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Least Recently Used caching module."""
+"""LRU Caching."""
 from collections import OrderedDict
 from base_caching import BaseCaching
 
