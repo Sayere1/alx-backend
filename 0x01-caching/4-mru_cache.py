@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""MRU cache"""
+"""MRU Caching"""
 from collections import OrderedDict
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """class MRUCache that inherits from BaseCaching n is a caching system"""
+    """MRUCache that inherits from BaseCaching and is a caching system"""
     def __init__(self):
-        """cache initializes"""
+        """cache initialize"""
         super().__init__()
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """Assign an item to the self.cache_data."""
+        """Assign an item to the self.cache_data"""
         if key is None or item is None:
             return
         if key not in self.cache_data:
@@ -25,7 +25,7 @@ class MRUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """return the value in self.cache_data linked to key or none"""
+        """Retrieves an item by key."""
         if key is not None and key in self.cache_data:
             self.cache_data.move_to_end(key, last=False)
         return self.cache_data.get(key, None)
