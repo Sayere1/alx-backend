@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""LFU Cache"""
+"""LFU Caching"""
 from collections import OrderedDict
 from base_caching import BaseCaching
 
 
 class LFUCache(BaseCaching):
-    """class LFUCache that inherits from BaseCaching n is a caching system"""
+    """LFUCache that inherits from BaseCaching and is a caching system"""
     def __init__(self):
-        """Cache initializes"""
+        """cache initialize"""
         super().__init__()
         self.cache_data = OrderedDict()
         self.keys_freq = []
 
     def __reorder_items(self, mru_key):
-        """reorder or sort items the assign items."""
+        """reorder or sort items the assign items"""
         max_positions = []
         mru_freq = 0
         mru_pos = 0
@@ -36,7 +36,7 @@ class LFUCache(BaseCaching):
         self.keys_freq.insert(ins_pos, [mru_key, mru_freq])
 
     def put(self, key, item):
-        """Assign an item to the self.cache_data."""
+        """Assign an item to the self.cache_data"""
         if key is None or item is None:
             return
         if key not in self.cache_data:
@@ -57,7 +57,7 @@ class LFUCache(BaseCaching):
             self.__reorder_items(key)
 
     def get(self, key):
-        """return the value in self.cache_data linked to key or none"""
+        """Retrieves an item by key."""
         if key is not None and key in self.cache_data:
             self.__reorder_items(key)
         return self.cache_data.get(key, None)
