@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Basic Flask app."""
+"""A Basic Flask."""
 from flask import Flask, render_template
 
 
