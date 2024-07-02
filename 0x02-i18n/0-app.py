@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""A Basic Flask."""
-from flask import Flask, render_template
+"""set up a single route basic flask app."""
+from flask import (Flask, render_template)
 
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
 @app.route('/')
 def get_index() -> str:
-    """The home/index page."""
+    """output the index"""
     return render_template('0-index.html')
 
 
